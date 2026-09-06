@@ -1,0 +1,277 @@
+:root {
+  --bg: #f5f0e8;
+  --ink: #1c1917;
+  --muted: #78716c;
+  --panel: #fffdf8;
+  --line: #e7e0d5;
+  --accent: #0f766e;
+  --accent-2: #b45309;
+  --font: "Source Sans 3", "Segoe UI", sans-serif;
+  --display: "Fraunces", Georgia, serif;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  background:
+    radial-gradient(900px 420px at 0% 0%, rgba(15, 118, 110, 0.08), transparent 55%),
+    radial-gradient(700px 380px at 100% 0%, rgba(180, 83, 9, 0.08), transparent 50%),
+    var(--bg);
+  line-height: 1.45;
+}
+
+.app {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  margin: 0.2rem 0 0.4rem;
+  letter-spacing: -0.02em;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.lede {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.method-toggle {
+  display: inline-flex;
+  gap: 0.35rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25rem;
+}
+
+.method-toggle button {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.method-toggle button.active {
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+}
+
+.meta-line,
+.muted,
+.meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.error {
+  color: #be123c;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.panel h2 {
+  font-family: var(--display);
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+}
+
+.panel h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+}
+
+.panel-head .muted {
+  margin: 0 0 0.75rem;
+}
+
+.chart-box {
+  width: 100%;
+}
+
+.dual-charts {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.legend button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.swatch {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+}
+
+.tooltip {
+  background: #1c1917;
+  color: white;
+  padding: 0.5rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+}
+
+.seg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.seg-card {
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  border-radius: 12px;
+  background: white;
+}
+
+.seg-card.active {
+  box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.25);
+}
+
+.seg-hit {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 0.85rem;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.seg-hit header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.seg-hit h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.05rem;
+}
+
+.size {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.seg-hit p {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.seg-hit dl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.35rem;
+  margin: 0.6rem 0;
+}
+
+.seg-hit dt {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.seg-hit dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.seg-hit h4 {
+  margin: 0.4rem 0 0.25rem;
+  font-size: 0.8rem;
+}
+
+.seg-hit ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.customer-table {
+  margin-top: 1rem;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
