@@ -1,0 +1,386 @@
+:root {
+  --bg: #f3f1eb;
+  --ink: #142033;
+  --muted: #5c6b7a;
+  --panel: #fffcf7;
+  --line: #d5d0c6;
+  --accent: #1d4ed8;
+  --accent-2: #0f766e;
+  --pickup: #c2410c;
+  --dropoff: #1d4ed8;
+  --font: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  background:
+    linear-gradient(180deg, rgba(29, 78, 216, 0.06), transparent 280px),
+    repeating-linear-gradient(
+      -12deg,
+      transparent,
+      transparent 18px,
+      rgba(20, 32, 51, 0.02) 18px,
+      rgba(20, 32, 51, 0.02) 19px
+    ),
+    var(--bg);
+  line-height: 1.45;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.hero {
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+.hero h1 {
+  margin: 0.25rem 0 0.4rem;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.map-shell {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--panel);
+  box-shadow: 0 10px 30px rgba(20, 32, 51, 0.06);
+}
+
+.map,
+.map-placeholder {
+  height: min(62vh, 560px);
+  width: 100%;
+  background: #dde5ee;
+}
+
+.map-hint {
+  margin: 0;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.85rem;
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--muted);
+}
+
+.coords {
+  margin: 0.5rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.pin {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: white;
+  font-weight: 700;
+  font-size: 0.75rem;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.pickup-pin {
+  background: var(--pickup);
+}
+
+.dropoff-pin {
+  background: var(--dropoff);
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.panel h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+}
+
+.panel h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+fieldset {
+  border: 0;
+  margin: 0 0 0.85rem;
+  padding: 0;
+}
+
+legend {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem;
+}
+
+.segmented button {
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+.segmented button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.75rem;
+}
+
+label {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+input,
+button {
+  font: inherit;
+}
+
+input {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.55rem 0.65rem;
+  background: white;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.btn {
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 8px;
+  padding: 0.55rem 0.85rem;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  font-weight: 600;
+}
+
+.btn.primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.result .big {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.result .unit {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.result .sub,
+.result .ci,
+.result .meta,
+.muted p {
+  color: var(--muted);
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+}
+
+.result .hint {
+  font-size: 0.8rem;
+}
+
+.result.error {
+  border-color: #fca5a5;
+  background: #fff5f5;
+}
+
+.feat-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.feat-list li {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.82rem;
+}
+
+.bar-track {
+  height: 8px;
+  background: #e8e4db;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+}
+
+.pct {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.metric-grid {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.metric-grid article {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.7rem;
+  position: relative;
+  background: white;
+}
+
+.metric-grid article.best {
+  border-color: #93c5fd;
+  box-shadow: inset 0 0 0 1px rgba(29, 78, 216, 0.15);
+}
+
+.metric-grid h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.85rem;
+  font-family: var(--mono);
+}
+
+.metric-grid dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.35rem;
+}
+
+.metric-grid dt {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.metric-grid dd {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.badge {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  margin: 0;
+  font-size: 0.68rem;
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 0.15rem 0.4rem;
+  border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .map,
+  .map-placeholder {
+    height: 420px;
+  }
+}

@@ -1,0 +1,2 @@
+# Placeholder so the data/ directory is tracked.
+# Raw/processed files are gitignored — run `python data/fetch_data.py`.
