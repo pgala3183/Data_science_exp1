@@ -1,5 +1,5 @@
 # Data Science Experiments (CMPE 297)
-
+Video explainations: https://drive.google.com/drive/folders/13iLfY5BxwPUcunDKCxSe5806nXlYZZQH?usp=sharing
 Hands-on portfolio of data science and ML engineering experiments — from classical ML and AutoML to interactive explainers, auditing, and a CRISP-DM capstone.
 
 Each numbered folder is a **self-contained project** with its own `README`, backend/frontend (where applicable), and run instructions.
