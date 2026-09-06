@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { fetchCategories, fetchSkills } from "../api";
 import { clearProgress, loadProgress } from "../progress";
 import type { Skill } from "../types";
-import { SkillCard } from "./SkillCard";
+import { SkillCard } from "../components/SkillCard";
 
 export function CatalogPage() {
   const [skills, setSkills] = useState<Skill[]>([]);
