@@ -1,0 +1,282 @@
+[
+  {
+    "id": "eda-describe-iris",
+    "name": "Descriptive statistics",
+    "category": "EDA",
+    "difficulty": "beginner",
+    "dataset": "iris",
+    "description": "Summarize numeric columns with count, mean, std, and percentiles.",
+    "snippet": "df.describe().T",
+    "script": "runners.eda_describe"
+  },
+  {
+    "id": "eda-missingness-titanic",
+    "name": "Missingness audit",
+    "category": "EDA",
+    "difficulty": "beginner",
+    "dataset": "titanic",
+    "description": "Measure % missing per column before any imputation decisions.",
+    "snippet": "df.isna().mean().sort_values(ascending=False)",
+    "script": "runners.eda_missingness"
+  },
+  {
+    "id": "eda-correlation-housing",
+    "name": "Correlation heatmap data",
+    "category": "EDA",
+    "difficulty": "beginner",
+    "dataset": "housing",
+    "description": "Pearson correlations among numeric predictors and the target.",
+    "snippet": "df.corr(numeric_only=True)",
+    "script": "runners.eda_correlation"
+  },
+  {
+    "id": "eda-class-balance-wine",
+    "name": "Class balance check",
+    "category": "EDA",
+    "difficulty": "beginner",
+    "dataset": "wine",
+    "description": "Count target classes to spot imbalance early.",
+    "snippet": "y.value_counts(normalize=True)",
+    "script": "runners.eda_class_balance"
+  },
+  {
+    "id": "eda-distribution-adult",
+    "name": "Feature distribution bins",
+    "category": "EDA",
+    "difficulty": "beginner",
+    "dataset": "adult",
+    "description": "Histogram-style bins for a continuous feature (hours per week).",
+    "snippet": "pd.cut(df['hours_per_week'], bins=8).value_counts()",
+    "script": "runners.eda_distribution"
+  },
+  {
+    "id": "fe-onehot-titanic",
+    "name": "One-hot encoding",
+    "category": "Feature engineering",
+    "difficulty": "beginner",
+    "dataset": "titanic",
+    "description": "Encode categoricals (sex, embarked) without leaking the target.",
+    "snippet": "pd.get_dummies(X, columns=['sex','embarked'], drop_first=True)",
+    "script": "runners.fe_onehot"
+  },
+  {
+    "id": "fe-log-target-housing",
+    "name": "Log-transform skewed target",
+    "category": "Feature engineering",
+    "difficulty": "intermediate",
+    "dataset": "housing",
+    "description": "Compare skew of sale_price vs log1p(sale_price).",
+    "snippet": "np.log1p(y); scipy.stats.skew",
+    "script": "runners.fe_log_target"
+  },
+  {
+    "id": "fe-interaction-titanic",
+    "name": "Interaction feature",
+    "category": "Feature engineering",
+    "difficulty": "intermediate",
+    "dataset": "titanic",
+    "description": "Create family_size = sibsp + parch + 1 and show correlation with survival.",
+    "snippet": "df['family_size'] = df.sibsp + df.parch + 1",
+    "script": "runners.fe_interaction"
+  },
+  {
+    "id": "fe-standardize-wine",
+    "name": "Standard scaling",
+    "category": "Feature engineering",
+    "difficulty": "beginner",
+    "dataset": "wine",
+    "description": "Fit StandardScaler on train only; report mean/std of scaled columns.",
+    "snippet": "StandardScaler().fit(X_train).transform(X_test)",
+    "script": "runners.fe_standardize"
+  },
+  {
+    "id": "fe-binning-adult",
+    "name": "Age binning",
+    "category": "Feature engineering",
+    "difficulty": "beginner",
+    "dataset": "adult",
+    "description": "Bucket ages into ordinal bands for a simple nonlinear signal.",
+    "snippet": "pd.cut(age, bins=[17,30,45,60,100], labels=[0,1,2,3])",
+    "script": "runners.fe_binning"
+  },
+  {
+    "id": "cv-kfold-iris",
+    "name": "K-fold CV accuracy",
+    "category": "Cross-validation",
+    "difficulty": "beginner",
+    "dataset": "iris",
+    "description": "5-fold stratified CV with LogisticRegression; return fold scores.",
+    "snippet": "cross_val_score(clf, X, y, cv=StratifiedKFold(5))",
+    "script": "runners.cv_kfold"
+  },
+  {
+    "id": "cv-train-test-leak-note-housing",
+    "name": "Train/test split hygiene",
+    "category": "Cross-validation",
+    "difficulty": "beginner",
+    "dataset": "housing",
+    "description": "Fit scaler on train only and show test prediction MAE.",
+    "snippet": "train_test_split → fit scaler on X_train only",
+    "script": "runners.cv_split_hygiene"
+  },
+  {
+    "id": "cv-repeated-wine",
+    "name": "Repeated stratified CV",
+    "category": "Cross-validation",
+    "difficulty": "intermediate",
+    "dataset": "wine",
+    "description": "RepeatedStratifiedKFold mean ± std accuracy for a stable estimate.",
+    "snippet": "RepeatedStratifiedKFold(n_splits=5, n_repeats=2)",
+    "script": "runners.cv_repeated"
+  },
+  {
+    "id": "imb-baseline-adult",
+    "name": "Imbalance baseline metrics",
+    "category": "Imbalanced classification",
+    "difficulty": "intermediate",
+    "dataset": "adult",
+    "description": "Accuracy vs balanced accuracy / F1 on imbalanced income labels.",
+    "snippet": "balanced_accuracy_score, f1_score",
+    "script": "runners.imb_baseline"
+  },
+  {
+    "id": "imb-class-weight-adult",
+    "name": "Class-weighted logistic",
+    "category": "Imbalanced classification",
+    "difficulty": "intermediate",
+    "dataset": "adult",
+    "description": "Compare default vs class_weight='balanced' F1 on a holdout.",
+    "snippet": "LogisticRegression(class_weight='balanced')",
+    "script": "runners.imb_class_weight"
+  },
+  {
+    "id": "imb-undersample-titanic",
+    "name": "Random undersampling demo",
+    "category": "Imbalanced classification",
+    "difficulty": "intermediate",
+    "dataset": "titanic",
+    "description": "Downsample majority class in train fold only; report sizes and F1.",
+    "snippet": "resample majority to minority count (train only)",
+    "script": "runners.imb_undersample"
+  },
+  {
+    "id": "tune-grid-iris",
+    "name": "Grid search CV",
+    "category": "Hyperparameter tuning",
+    "difficulty": "intermediate",
+    "dataset": "iris",
+    "description": "GridSearchCV over C for logistic regression; best params + score.",
+    "snippet": "GridSearchCV(LogisticRegression(), {'C': [...]} )",
+    "script": "runners.tune_grid"
+  },
+  {
+    "id": "tune-random-wine",
+    "name": "Randomized search",
+    "category": "Hyperparameter tuning",
+    "difficulty": "intermediate",
+    "dataset": "wine",
+    "description": "RandomizedSearchCV over RandomForest depth/estimators.",
+    "snippet": "RandomizedSearchCV(RandomForestClassifier(), param_distributions)",
+    "script": "runners.tune_random"
+  },
+  {
+    "id": "tune-learning-curve-housing",
+    "name": "Learning curve points",
+    "category": "Hyperparameter tuning",
+    "difficulty": "intermediate",
+    "dataset": "housing",
+    "description": "Train/validation MAE vs training size for a ridge regressor.",
+    "snippet": "learning_curve(Ridge(), X, y, scoring='neg_mean_absolute_error')",
+    "script": "runners.tune_learning_curve"
+  },
+  {
+    "id": "interp-coef-iris",
+    "name": "Linear coefficient importance",
+    "category": "Model interpretability",
+    "difficulty": "beginner",
+    "dataset": "iris",
+    "description": "Absolute logistic coefficients (OvR) as a simple importance proxy.",
+    "snippet": "np.abs(clf.coef_).mean(axis=0)",
+    "script": "runners.interp_coef"
+  },
+  {
+    "id": "interp-permutation-wine",
+    "name": "Permutation importance",
+    "category": "Model interpretability",
+    "difficulty": "intermediate",
+    "dataset": "wine",
+    "description": "Permutation importance on a held-out set for a random forest.",
+    "snippet": "permutation_importance(model, X_test, y_test)",
+    "script": "runners.interp_permutation"
+  },
+  {
+    "id": "interp-partial-dep-housing",
+    "name": "Partial dependence (1D)",
+    "category": "Model interpretability",
+    "difficulty": "advanced",
+    "dataset": "housing",
+    "description": "Partial dependence of predicted price on sqft for a GBM.",
+    "snippet": "partial_dependence(model, X, ['sqft'])",
+    "script": "runners.interp_partial_dep"
+  },
+  {
+    "id": "stats-ttest-titanic",
+    "name": "Two-sample t-test",
+    "category": "Statistical testing",
+    "difficulty": "intermediate",
+    "dataset": "titanic",
+    "description": "t-test of mean age: survived vs not (Welch).",
+    "snippet": "scipy.stats.ttest_ind(age_s, age_d, equal_var=False)",
+    "script": "runners.stats_ttest"
+  },
+  {
+    "id": "stats-chi2-titanic",
+    "name": "Chi-square association",
+    "category": "Statistical testing",
+    "difficulty": "intermediate",
+    "dataset": "titanic",
+    "description": "Chi-square test between sex and survival.",
+    "snippet": "scipy.stats.chi2_contingency(pd.crosstab(sex, survived))",
+    "script": "runners.stats_chi2"
+  },
+  {
+    "id": "stats-corr-pvalue-housing",
+    "name": "Correlation p-value",
+    "category": "Statistical testing",
+    "difficulty": "intermediate",
+    "dataset": "housing",
+    "description": "Pearson r and p-value between sqft and sale_price.",
+    "snippet": "scipy.stats.pearsonr(sqft, sale_price)",
+    "script": "runners.stats_corr"
+  },
+  {
+    "id": "metrics-roc-adult",
+    "name": "ROC curve points",
+    "category": "Evaluation metrics",
+    "difficulty": "intermediate",
+    "dataset": "adult",
+    "description": "Compute ROC curve and AUC for a probability classifier.",
+    "snippet": "roc_curve; roc_auc_score",
+    "script": "runners.metrics_roc"
+  },
+  {
+    "id": "metrics-confusion-wine",
+    "name": "Confusion matrix",
+    "category": "Evaluation metrics",
+    "difficulty": "beginner",
+    "dataset": "wine",
+    "description": "Multiclass confusion matrix on a train/test split.",
+    "snippet": "confusion_matrix(y_test, y_pred)",
+    "script": "runners.metrics_confusion"
+  },
+  {
+    "id": "pipeline-basic-titanic",
+    "name": "sklearn Pipeline",
+    "category": "Pipelines",
+    "difficulty": "intermediate",
+    "dataset": "titanic",
+    "description": "ColumnTransformer + Pipeline evaluated with cross_val_score.",
+    "snippet": "Pipeline([('prep', ColumnTransformer...), ('clf', LogisticRegression())])",
+    "script": "runners.pipeline_basic"
+  }
+]
