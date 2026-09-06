@@ -1,0 +1,126 @@
+{
+  "project_path": "C:\\Users\\User\\Desktop\\data_science_exp1\\3_customer_segmentation_clustering",
+  "project_name": "3_customer_segmentation_clustering",
+  "overall_score": 94,
+  "letter_grade": "A",
+  "dimensions": [
+    {
+      "dimension": "leakage",
+      "label": "Train/Test Leakage",
+      "score": 83,
+      "finding_count": 2
+    },
+    {
+      "dimension": "reproducibility",
+      "label": "Reproducibility / Seeds",
+      "score": 100,
+      "finding_count": 1
+    },
+    {
+      "dimension": "validation",
+      "label": "Data Validation",
+      "score": 100,
+      "finding_count": 1
+    },
+    {
+      "dimension": "tests",
+      "label": "Test Coverage",
+      "score": 100,
+      "finding_count": 1
+    },
+    {
+      "dimension": "documentation",
+      "label": "Documentation",
+      "score": 100,
+      "finding_count": 2
+    },
+    {
+      "dimension": "fairness",
+      "label": "Fairness / Bias",
+      "score": 78,
+      "finding_count": 1
+    }
+  ],
+  "findings": [
+    {
+      "dimension": "leakage",
+      "severity": "medium",
+      "rule_id": "LEAK_FIT_NO_SPLIT_IN_FILE",
+      "message": "Scaler/transformer fit found with no train/test split in this file. Confirm fitting is restricted to training rows.",
+      "file": "backend/app/clustering.py",
+      "line": 61,
+      "evidence": "scaler.fit_transform(rfm[RFM_FEATURES])"
+    },
+    {
+      "dimension": "leakage",
+      "severity": "low",
+      "rule_id": "LEAK_NO_SPLIT_PROJECT",
+      "message": "Project fits estimators but no common train/test split pattern was detected across scanned Python files.",
+      "file": null,
+      "line": null,
+      "evidence": null
+    },
+    {
+      "dimension": "reproducibility",
+      "severity": "info",
+      "rule_id": "SEED_OK",
+      "message": "Seed / random_state usage looks present.",
+      "file": null,
+      "line": null,
+      "evidence": null
+    },
+    {
+      "dimension": "validation",
+      "severity": "info",
+      "rule_id": "VAL_LIB_FOUND",
+      "message": "Validation-related library usage detected.",
+      "file": "backend/app/schemas.py",
+      "line": 1,
+      "evidence": null
+    },
+    {
+      "dimension": "tests",
+      "severity": "info",
+      "rule_id": "TEST_FILES_FOUND",
+      "message": "Found 2 test file(s).",
+      "file": null,
+      "line": null,
+      "evidence": "backend/tests/test_api.py, backend/tests/test_rfm.py"
+    },
+    {
+      "dimension": "documentation",
+      "severity": "info",
+      "rule_id": "DOC_README_OK",
+      "message": "README present with expected section signals.",
+      "file": "README.md",
+      "line": 1,
+      "evidence": null
+    },
+    {
+      "dimension": "documentation",
+      "severity": "info",
+      "rule_id": "DOC_ENV_SPEC_OK",
+      "message": "Environment spec found: backend/requirements.txt",
+      "file": "backend/requirements.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "dimension": "fairness",
+      "severity": "high",
+      "rule_id": "FAIR_NO_CHECKS",
+      "message": "No fairness library or fairness-metric language detected. Static audit cannot confirm bias evaluation was performed.",
+      "file": null,
+      "line": null,
+      "evidence": null
+    }
+  ],
+  "files_scanned": 10,
+  "notes": [
+    "Static analysis cannot prove absence of leakage \u2014 cross-file fit-then-split flows may be missed.",
+    "Seed checks cover common sklearn/numpy/torch patterns only; custom RNGs may be invisible.",
+    "Fairness scoring looks for libraries/keywords; it does not measure disparate impact.",
+    "Test 'coverage' here is file presence/ratio, not line- or branch-coverage from a runner.",
+    "README section detection is regex-based and can false-positive/false-negative on unusual docs."
+  ]
+}

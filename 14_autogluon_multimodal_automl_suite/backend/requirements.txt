@@ -1,0 +1,13 @@
+# AutoGluon multimodal is large — prefer a venv on D: if C: is tight on space.
+autogluon.multimodal==1.6.1
+autogluon.tabular[lightgbm,catboost,xgboost]==1.6.1
+fastapi==0.115.11
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+pydantic==2.10.6
+httpx==0.28.1
+pytest==8.3.5
+pillow==11.1.0
+scikit-learn==1.6.1
+pandas==2.2.3
+ruff==0.9.10

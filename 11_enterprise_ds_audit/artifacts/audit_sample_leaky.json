@@ -1,0 +1,189 @@
+{
+  "project_path": "C:\\Users\\User\\Desktop\\data_science_exp1\\11_enterprise_ds_audit\\backend\\tests\\fixtures\\sample_leaky",
+  "project_name": "sample_leaky",
+  "overall_score": 57,
+  "letter_grade": "F",
+  "dimensions": [
+    {
+      "dimension": "leakage",
+      "label": "Train/Test Leakage",
+      "score": 78,
+      "finding_count": 1
+    },
+    {
+      "dimension": "reproducibility",
+      "label": "Reproducibility / Seeds",
+      "score": 54,
+      "finding_count": 3
+    },
+    {
+      "dimension": "validation",
+      "label": "Data Validation",
+      "score": 61,
+      "finding_count": 3
+    },
+    {
+      "dimension": "tests",
+      "label": "Test Coverage",
+      "score": 65,
+      "finding_count": 1
+    },
+    {
+      "dimension": "documentation",
+      "label": "Documentation",
+      "score": 8,
+      "finding_count": 6
+    },
+    {
+      "dimension": "fairness",
+      "label": "Fairness / Bias",
+      "score": 78,
+      "finding_count": 1
+    }
+  ],
+  "findings": [
+    {
+      "dimension": "leakage",
+      "severity": "high",
+      "rule_id": "LEAK_FIT_BEFORE_SPLIT",
+      "message": "Transformer/model `.fit` / `.fit_transform` appears before a train/test split call in this file \u2014 possible full-dataset fitting.",
+      "file": "train.py",
+      "line": 12,
+      "evidence": "scaler.fit_transform(X)"
+    },
+    {
+      "dimension": "reproducibility",
+      "severity": "medium",
+      "rule_id": "SEED_MISSING_RANDOM_STATE",
+      "message": "`train_test_split(...)` called without `random_state` / deterministic flag.",
+      "file": "train.py",
+      "line": 14,
+      "evidence": "train_test_split"
+    },
+    {
+      "dimension": "reproducibility",
+      "severity": "medium",
+      "rule_id": "SEED_MISSING_RANDOM_STATE",
+      "message": "`RandomForestClassifier(...)` called without `random_state` / deterministic flag.",
+      "file": "train.py",
+      "line": 16,
+      "evidence": "RandomForestClassifier"
+    },
+    {
+      "dimension": "reproducibility",
+      "severity": "high",
+      "rule_id": "SEED_NONE_PROJECT",
+      "message": "No `random_state`, `SEED`, `np.random.seed`, or `torch.manual_seed` usage detected in the project.",
+      "file": null,
+      "line": null,
+      "evidence": null
+    },
+    {
+      "dimension": "validation",
+      "severity": "high",
+      "rule_id": "VAL_NO_SCHEMA",
+      "message": "No schema/validation library or schema-check pattern detected (pandera, pydantic models, great_expectations, etc.).",
+      "file": null,
+      "line": null,
+      "evidence": null
+    },
+    {
+      "dimension": "validation",
+      "severity": "medium",
+      "rule_id": "VAL_NO_NULL_HANDLING",
+      "message": "No null/missing-value handling patterns (isna/dropna/fillna) found.",
+      "file": null,
+      "line": null,
+      "evidence": null
+    },
+    {
+      "dimension": "validation",
+      "severity": "low",
+      "rule_id": "VAL_NO_ASSERTS",
+      "message": "No `assert` guards found in Python sources for data invariants.",
+      "file": null,
+      "line": null,
+      "evidence": null
+    },
+    {
+      "dimension": "tests",
+      "severity": "critical",
+      "rule_id": "TEST_NONE",
+      "message": "No test files found (expected `tests/`, `test_*.py`, or `*_test.py`).",
+      "file": null,
+      "line": null,
+      "evidence": null
+    },
+    {
+      "dimension": "documentation",
+      "severity": "high",
+      "rule_id": "DOC_README_TOO_SHORT",
+      "message": "README exists but is very short (<200 characters).",
+      "file": "README.md",
+      "line": 1,
+      "evidence": null
+    },
+    {
+      "dimension": "documentation",
+      "severity": "medium",
+      "rule_id": "DOC_MISSING_SECTION_PROBLEM",
+      "message": "README appears to lack a 'problem' section.",
+      "file": "README.md",
+      "line": 1,
+      "evidence": null
+    },
+    {
+      "dimension": "documentation",
+      "severity": "medium",
+      "rule_id": "DOC_MISSING_SECTION_DATASET",
+      "message": "README appears to lack a 'dataset' section.",
+      "file": "README.md",
+      "line": 1,
+      "evidence": null
+    },
+    {
+      "dimension": "documentation",
+      "severity": "medium",
+      "rule_id": "DOC_MISSING_SECTION_HOW_TO_RUN",
+      "message": "README appears to lack a 'how to run' section.",
+      "file": "README.md",
+      "line": 1,
+      "evidence": null
+    },
+    {
+      "dimension": "documentation",
+      "severity": "medium",
+      "rule_id": "DOC_MISSING_SECTION_METHODOLOGY",
+      "message": "README appears to lack a 'methodology' section.",
+      "file": "README.md",
+      "line": 1,
+      "evidence": null
+    },
+    {
+      "dimension": "documentation",
+      "severity": "high",
+      "rule_id": "DOC_NO_ENV_SPEC",
+      "message": "No environment specification found (requirements.txt, environment.yml, pyproject.toml, Pipfile, \u2026).",
+      "file": null,
+      "line": null,
+      "evidence": null
+    },
+    {
+      "dimension": "fairness",
+      "severity": "high",
+      "rule_id": "FAIR_NO_CHECKS",
+      "message": "No fairness library or fairness-metric language detected. Static audit cannot confirm bias evaluation was performed.",
+      "file": null,
+      "line": null,
+      "evidence": null
+    }
+  ],
+  "files_scanned": 1,
+  "notes": [
+    "Static analysis cannot prove absence of leakage \u2014 cross-file fit-then-split flows may be missed.",
+    "Seed checks cover common sklearn/numpy/torch patterns only; custom RNGs may be invisible.",
+    "Fairness scoring looks for libraries/keywords; it does not measure disparate impact.",
+    "Test 'coverage' here is file presence/ratio, not line- or branch-coverage from a runner.",
+    "README section detection is regex-based and can false-positive/false-negative on unusual docs."
+  ]
+}

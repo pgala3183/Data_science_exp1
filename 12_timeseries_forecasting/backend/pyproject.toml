@@ -1,0 +1,12 @@
+[project]
+name = "timeseries-forecasting"
+version = "1.0.0"
+description = "Multi-horizon SARIMA + GB forecasting with rolling-origin backtest"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100

@@ -1,0 +1,92 @@
+{
+  "label": "category",
+  "n_train": 300,
+  "n_test": 100,
+  "class_labels": [
+    "apparel",
+    "beauty",
+    "electronics",
+    "home",
+    "sports"
+  ],
+  "accuracies": {
+    "multimodal": 1.0,
+    "image_only": 0.99,
+    "text_only": 0.91,
+    "tabular_only": 0.36
+  },
+  "best_baseline": "image_only",
+  "best_baseline_accuracy": 0.99,
+  "multimodal_accuracy": 1.0,
+  "lift_vs_best_baseline": 0.010000000000000009,
+  "modalities": {
+    "image": "image",
+    "text": "description",
+    "tabular": [
+      "price",
+      "rating",
+      "brand_tier",
+      "weight_oz",
+      "is_fragile"
+    ]
+  },
+  "time_limits": {
+    "multimodal": 180,
+    "image_only": 120,
+    "text_only": 60,
+    "tabular_only": 60
+  },
+  "demo_samples": [
+    {
+      "image": "C:\\Users\\User\\Desktop\\data_science_exp1\\14_autogluon_multimodal_automl_suite\\data\\images\\apparel_0112.jpg",
+      "description": "Wool scarf. soft everyday wear with a relaxed fit. gift-ready packaging.",
+      "price": 117.86,
+      "rating": 4.5,
+      "brand_tier": "premium",
+      "weight_oz": 28.3,
+      "is_fragile": 0,
+      "category": "apparel"
+    },
+    {
+      "image": "C:\\Users\\User\\Desktop\\data_science_exp1\\14_autogluon_multimodal_automl_suite\\data\\images\\electronics_0037.jpg",
+      "description": "LED monitor stand. plug-and-play accessory for laptops and phones. ships in two days.",
+      "price": 309.99,
+      "rating": 3.7,
+      "brand_tier": "budget",
+      "weight_oz": 4.0,
+      "is_fragile": 0,
+      "category": "electronics"
+    },
+    {
+      "image": "C:\\Users\\User\\Desktop\\data_science_exp1\\14_autogluon_multimodal_automl_suite\\data\\images\\home_0221.jpg",
+      "description": "Cutting board. kitchen and living-room essential for daily use. ships in two days.",
+      "price": 28.11,
+      "rating": 3.9,
+      "brand_tier": "budget",
+      "weight_oz": 5.1,
+      "is_fragile": 1,
+      "category": "home"
+    },
+    {
+      "image": "C:\\Users\\User\\Desktop\\data_science_exp1\\14_autogluon_multimodal_automl_suite\\data\\images\\electronics_0049.jpg",
+      "description": "LED monitor stand. plug-and-play accessory for laptops and phones. gift-ready packaging.",
+      "price": 166.6,
+      "rating": 4.0,
+      "brand_tier": "budget",
+      "weight_oz": 50.4,
+      "is_fragile": 1,
+      "category": "electronics"
+    },
+    {
+      "image": "C:\\Users\\User\\Desktop\\data_science_exp1\\14_autogluon_multimodal_automl_suite\\data\\images\\home_0213.jpg",
+      "description": "Desk lamp. space-saving organizer for apartments. pairs well with other items.",
+      "price": 108.55,
+      "rating": 4.3,
+      "brand_tier": "mid",
+      "weight_oz": 52.9,
+      "is_fragile": 1,
+      "category": "home"
+    }
+  ],
+  "notes": "Multimodal fusion beat the best single-modality baseline (image_only) by 1.0% absolute accuracy on the held-out set."
+}
