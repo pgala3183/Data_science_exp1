@@ -1,0 +1,15 @@
+# Prefer CPU wheel if disk is tight:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+torch>=2.2.0
+fastapi==0.115.11
+uvicorn[standard]==0.34.0
+pydantic==2.10.6
+numpy==2.2.3
+pandas==2.2.3
+scikit-learn==1.6.1
+scipy>=1.11.0
+pyarrow==19.0.1
+joblib==1.4.2
+httpx==0.28.1
+pytest==8.3.5
+ruff==0.9.10
