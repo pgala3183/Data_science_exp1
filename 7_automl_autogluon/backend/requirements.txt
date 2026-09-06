@@ -1,0 +1,8 @@
+# AutoGluon is large — install into a D: venv if C: is low on space.
+autogluon.tabular[lightgbm,catboost,xgboost]==1.6.1
+fastapi==0.115.11
+uvicorn[standard]==0.34.0
+pydantic==2.10.6
+httpx==0.28.1
+pytest==8.3.5
+ruff==0.9.10
