@@ -1,0 +1,9 @@
+{
+  "stage": "sft",
+  "params": 3231744,
+  "epochs": 40,
+  "seconds": 42.0,
+  "final_loss": 0.14657605066895485,
+  "n_examples": 25,
+  "device": "cpu"
+}

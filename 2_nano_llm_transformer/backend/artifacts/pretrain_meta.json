@@ -1,0 +1,18 @@
+{
+  "stage": "pretrain",
+  "params": 3231744,
+  "steps": 300,
+  "seconds": 223.3,
+  "best_val_loss": 1.8110812902450562,
+  "device": "cpu",
+  "config": {
+    "vocab_size": 71,
+    "block_size": 256,
+    "n_layer": 4,
+    "n_head": 4,
+    "n_embd": 256,
+    "dropout": 0.0,
+    "bias": false,
+    "swiglu_hidden": 704
+  }
+}
