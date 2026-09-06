@@ -1,0 +1,17 @@
+node_modules/
+dist/
+build/
+coverage/
+*.db
+*.sqlite
+*.sqlite3
+.env
+.env.local
+.DS_Store
+*.log
+.vite/
+client/dist/
+server/dist/
+server/data/
+.prettiercache
+eslintcache
